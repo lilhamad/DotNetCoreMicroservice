@@ -10,5 +10,15 @@ namespace Actio.Common.Events
         public string Email { get; }
         public string Password { get; }
         public string Name { get; }
+
+        protected UserCreated()
+        {
+
+        }
+        public UserCreated(string email, string name)
+        {
+            Email = email;
+            Name = name;
+        }
     }
 }

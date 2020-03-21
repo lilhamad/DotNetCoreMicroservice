@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace Actio.Common.Events
 {
-    interface IAuthenticatedEvent : IEvent
+    interface IRejectEvent: IEvent
     {
-        Guid UserId { get; }
+        public string Email { get; }
+        public string Reason { get; }
+        public string Code { get; }
     }
 }

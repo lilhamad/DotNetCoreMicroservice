@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Actio.Common.Events
 {
-    interface IAuthenticatedEvent : IEvent
+    interface IEventHandler<in T> where T : IEvent
     {
-        Guid UserId { get; }
+        Task HandleAsync(T command);
     }
 }
