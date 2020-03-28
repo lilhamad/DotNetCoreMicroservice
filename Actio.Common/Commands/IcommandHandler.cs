@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Actio.Common.Commands
 {
-    interface IcommandHandler<in T> where T: Icommand
+    public interface ICommandHandler<in T> where T: ICommand
     {
         Task HandleAsync(T command);
     }

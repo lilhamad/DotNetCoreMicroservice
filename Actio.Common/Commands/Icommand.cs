@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 namespace Actio.Common.Commands
 {
     //Marker interface
-    public class Icommand
+    public interface ICommand
     {
+
     }
 }
