@@ -7,13 +7,8 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-using System.Reflection;
-using System.Threading.Tasks;
-using Actio.Common.Commands;
-using Actio.Common.Events;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RawRabbit;
 using RawRabbit.Instantiation;
 using RawRabbit.Pipe;
 
@@ -35,5 +30,23 @@ namespace Actio.Common.RabbitMq
 
         private static string GetQueueName<T>()
             => $"{Assembly.GetEntryAssembly().GetName()}/{typeof(T).Name}";
+        
+        //For configuring service buss connection
+        //add this to startup.cs services 
+        public static void AddRabbitMq(this IServiceCollection services, IConfiguration configuration)
+        {
+            //instantiate rabbitmq option
+            var options = new RabbitMqOptions();
+            //this will go get "rabbitmq" from settings.json
+            var section = configuration.GetSection("rabbitmq");
+            section.Bind(options);
+            var client = RawRabbitFactory.CreateSingleton(new RawRabbitOptions
+            {
+                ClientConfiguration = options
+            });
+            services.AddSingleton<IBusClient>(_ => client);
+        }
+    
     }
+    
 } 
