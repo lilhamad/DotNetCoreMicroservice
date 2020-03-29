@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Actio.Api.Repositories;
 using Actio.Common;
+using Actio.Common.Events;
 
 namespace Actio.Api.Handlers
 {
@@ -16,8 +17,8 @@ namespace Actio.Api.Handlers
         }
          public async Task HandleAsync(ActivityCreated @event)
         {
-            //await Task.CompletedTask;
-            await _activityRepository.AddAsync();
+            await Task.CompletedTask;
+            // await _activityRepository.AddAsync();
             Console.WriteLine($"Activity created: {@event.Name}.");
         }
     }
