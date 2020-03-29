@@ -18,7 +18,12 @@ namespace Actio.Common
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 
-        public IConfiguration Configuration {get;}
+        public Startup(IConfiguration configuration)
+        {
+            this.Configuration = configuration;
+
+        }
+        public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
@@ -26,7 +31,7 @@ namespace Actio.Common
             services.AddRabbitMq(Configuration);
             //add handler
             // commad will be handled by service while, api will handle the events
-            services.AddScoped<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
+            // services.AddScoped<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

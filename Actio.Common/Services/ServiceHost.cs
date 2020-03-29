@@ -1,4 +1,6 @@
-﻿using Actio.Common.Events;
+﻿using Actio.Common.Commands;
+using Actio.Common.Events;
+using Actio.Common.RabbitMq;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

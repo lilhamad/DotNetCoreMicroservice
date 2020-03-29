@@ -1,7 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="RawRabbit" Version="2.0.0-beta8"/>
+    <ProjectReference Include="..\Actio.Common\Actio.Common.csproj" />
+    <PackageReference Include="RawRabbit.Operations.Publish" Version="2.0.0-beta8" />
 
+  </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Actio.Common.Commands
 {
-    public class AuthenticatedUser : Icommand
+    public class AuthenticatedUser : ICommand
     {
         public string Email { get; set; }
         public string Password { get; set; }
