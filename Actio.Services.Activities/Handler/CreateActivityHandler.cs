@@ -3,15 +3,14 @@ using System.Threading.Tasks;
 using RawRabbit;
 using Actio.Common.Events;
 using Actio.Common.Commands;
-
 namespace Actio.Services.Activities.Handler
 {
-    public class CreateActivityHandler : ICommandHandler
+    public class CreateActivityHandler : ICommandHandler<CreateActivity>
     {
         private readonly IBusClient _busClient;
-        public CreateActivityHandler(IBusCLient busCLient)
+        public CreateActivityHandler(IBusClient busClient)
         {
-            _busClient = busCLient;
+            _busClient = busClient;
         }
 
         public async Task HandleAsync(CreateActivity command)

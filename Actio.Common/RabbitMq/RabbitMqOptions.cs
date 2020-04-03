@@ -1,6 +1,8 @@
+using RawRabbit.Configuration;
+
 namespace Actio.Common.RabbitMq
 {
-    public class RabbitMqOptions
+    public class RabbitMqOptions : RawRabbitConfiguration
     {
         
     }

@@ -27,7 +27,7 @@ namespace Actio.Common
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            //established a connection and configured our service bus
+            ////established a connection and configured our service bus
             services.AddRabbitMq(Configuration);
             //add handler
             // commad will be handled by service while, api will handle the events
