@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Actio.Common.Commands
 {
-    interface IAuthenticatedCommand
+    public interface IAuthenticatedCommand : ICommand
     {
         Guid UserId { get; set; }
     }

@@ -10,11 +10,11 @@ namespace Actio.Api.Handlers
 {
     public class ActivityCreatedHandler : IEventHandler<ActivityCreated>
     {
-        private readonly IActivityRepository _activityRepository;
-        public ActivityCreatedHandler(IActivityRepository activityRepository)
-        {
-            _activityRepository = activityRepository;
-        }
+        //private readonly IActivityRepository _activityRepository;
+        //public ActivityCreatedHandler(IActivityRepository activityRepository)
+        //{
+        //    _activityRepository = activityRepository;
+        //}
          public async Task HandleAsync(ActivityCreated @event)
         {
             await Task.CompletedTask;
