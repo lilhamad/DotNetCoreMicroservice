@@ -7,8 +7,8 @@ namespace Actio.Common.Events
 {
     interface IRejectEvent: IEvent
     {
-        public string Email { get; }
-        public string Reason { get; }
-        public string Code { get; }
+        string Email { get; }
+        string Reason { get; }
+        string Code { get; }
     }
 }
