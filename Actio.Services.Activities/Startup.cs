@@ -32,7 +32,6 @@ namespace Actio.Services.Activities
             services.AddRabbitMq(Configuration);
             //add handler
             // commad will be handled by service while, api will handle the events
-            //services.AddScoped<ICommandHandler<CreateActivity>, CreateActivityHandler>();
             services.AddScoped<ICommandHandler<CreateActivity>, CreateActivityHandler>();
         }
 

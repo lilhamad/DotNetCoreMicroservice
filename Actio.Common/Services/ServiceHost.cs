@@ -29,9 +29,11 @@ namespace Actio.Common.Services
             Console.Title = typeof(TStartup).Namespace;
             var config = new ConfigurationBuilder()
                 .AddEnvironmentVariables()
+                //add command line
                 .AddCommandLine(args)
                 .Build();
             var webHostBuilder = WebHost.CreateDefaultBuilder(args)
+                //use configuration
                 .UseConfiguration(config)
                 .UseStartup<TStartup>();
 

@@ -10,12 +10,15 @@ namespace Actio.Services.Activities.Handler
         private readonly IBusClient _busClient;
         public CreateActivityHandler(IBusClient busClient)
         {
+            //ibus client to produce event
             _busClient = busClient;
         }
 
         public async Task HandleAsync(CreateActivity command)
         {
             Console.WriteLine($"Creating activity : {command.Name}");
+            //create an event
+            //ActivityCreated is a event
             await _busClient.PublishAsync(new ActivityCreated(command.Id,
             command.UserId, command.Category, command.Name));
         }
