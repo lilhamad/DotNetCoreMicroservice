@@ -7,6 +7,6 @@ namespace Actio.Api.Repositories
 {
     public interface IActivityRepository
     {
-        Task AddAsync(Activity model);
+        //Task AddAsync(Activity model);
     }
 }

@@ -3,9 +3,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="RawRabbit" Version="2.0.0-beta8"/>
-    <ProjectReference Include="..\Actio.Common\Actio.Common.csproj" />
+    <PackageReference Include="RawRabbit" Version="2.0.0-beta8" />
     <PackageReference Include="RawRabbit.Operations.Publish" Version="2.0.0-beta8" />
 
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Actio.Common\Actio.Common.csproj" />
   </ItemGroup>
 </Project>

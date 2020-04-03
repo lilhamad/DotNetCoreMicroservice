@@ -18,7 +18,7 @@ namespace Actio.Services.Identity
             //service host responsible for consuming comands and producing events
             ServiceHost.Create<Startup>(args)
                 .UseRabbitMq()
-                .SubscribeToCommand<CreateActivity>()
+                .SubscribeToCommand<CreateUser>()
                 .Build()
                 .Run();
         }

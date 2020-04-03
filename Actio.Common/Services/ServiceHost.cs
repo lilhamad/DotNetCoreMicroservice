@@ -29,6 +29,7 @@ namespace Actio.Common.Services
             Console.Title = typeof(TStartup).Namespace;
             var config = new ConfigurationBuilder()
                 .AddEnvironmentVariables()
+                //.UseDefaultServiceProvider(options => options.ValidateScopes = false)
                 //add command line
                 .AddCommandLine(args)
                 .Build();
