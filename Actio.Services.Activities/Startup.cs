@@ -32,7 +32,7 @@ namespace Actio.Services.Activities
             services.AddRabbitMq(Configuration);
             //add handler
             // commad will be handled by service while, api will handle the events
-            services.AddScoped<ICommandHandler<CreateActivity>, CreateActivityHandler>();
+            services.AddSingleton<ICommandHandler<CreateActivity>, CreateActivityHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

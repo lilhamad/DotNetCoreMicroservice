@@ -4,7 +4,7 @@ using Actio.Common.Commands;
 using Microsoft.AspNetCore.Mvc;
 using RawRabbit;
 
-namespace Actio.Api .Controllers 
+namespace Actio.Apis.Controllers 
 {
     [Route("[Controller]")]
     public class ActivitesController : Controller

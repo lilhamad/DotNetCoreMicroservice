@@ -37,8 +37,8 @@ namespace Actio.Api
             //add handler
             // commad will be handled by service while, api will handle the events
             services.AddSingleton<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
-        
-            // services.AddScoped<IActivityRepository, ActivityRepository>();
+
+            services.AddScoped<IActivityRepository, ActivityRepository>();
             // services.AddControllers();
         }
 
