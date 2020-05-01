@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Actio.Common.Commands;
+using Actio.Common.Mongo;
 using Actio.Common.RabbitMq;
 using Actio.Services.Activities.Handler;
 using Microsoft.AspNetCore.Builder;
@@ -30,6 +31,8 @@ namespace Actio.Services.Activities
              services.AddMvc();
             //established a connection and configured our service bus
             services.AddRabbitMq(Configuration);
+            //add mongo db
+            services.AddMongoDB(Configuration);
             //add handler
             // commad will be handled by service while, api will handle the events
             services.AddSingleton<ICommandHandler<CreateActivity>, CreateActivityHandler>();
