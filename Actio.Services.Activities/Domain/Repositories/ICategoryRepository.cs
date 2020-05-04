@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace net_microservices.Actio.Services.Activities.Domain.Repositories
 {
-    interface ICategoryRepository
+    public interface ICategoryRepository
     {
         //get a category of a particular name
         Task<Activity> GetAsync(string name);
@@ -14,6 +14,5 @@ namespace net_microservices.Actio.Services.Activities.Domain.Repositories
         Task<IEnumerable<Category>> BrowseAsync();
         //save a category to a database
         Task AddAsync(Category category);
-
     }
 }

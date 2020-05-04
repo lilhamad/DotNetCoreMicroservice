@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Actio.Common.Mongo;
-using Actio.Services.Activities.Domain.Models;
-using Actio.Services.Activities.Domain.Repositories;
 using MongoDB.Driver;
+using net_microservices.Actio.Services.Activities.Domain.Models;
+using net_microservices.Actio.Services.Activities.Domain.Repositories;
 
 namespace Actio.Services.Activities.Services
 {
