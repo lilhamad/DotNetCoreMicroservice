@@ -1,16 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Actio.Services.Activities.Domain.Models;
-using Actio.Services.Activities.Domain.Repositories;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
+using net_microservices.Actio.Services.Activities.Domain.Models;
+using net_microservices.Actio.Services.Activities.Domain.Repositories;
 
 namespace Actio.Services.Activities.Repositories
 {
-    public class ActivityRepository
-    {
-        public class ActivityRepository : IActivityRepository
+    public class ActivityRepository : IActivityRepository
     {
         private readonly IMongoDatabase _database;
 
@@ -30,8 +28,7 @@ namespace Actio.Services.Activities.Repositories
         // public async Task DeleteAsync(Guid id)
         //     => await Collection.DeleteOneAsync(x => x.Id == id);
 
-        private IMongoCollection<Activity> Collection 
+        private IMongoCollection<Activity> Collection
             => _database.GetCollection<Activity>("Activities");
-    }
     }
 }

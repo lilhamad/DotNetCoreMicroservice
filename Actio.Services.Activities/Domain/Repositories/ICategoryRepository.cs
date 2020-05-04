@@ -9,10 +9,11 @@ namespace net_microservices.Actio.Services.Activities.Domain.Repositories
     public interface ICategoryRepository
     {
         //get a category of a particular name
-        Task<Activity> GetAsync(string name);
+        Task<Category> GetAsync(string name);
         //returns all available category
         Task<IEnumerable<Category>> BrowseAsync();
         //save a category to a database
         Task AddAsync(Category category);
+
     }
 }
