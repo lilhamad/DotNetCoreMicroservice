@@ -1,10 +1,10 @@
-﻿using net_microservices.Actio.Services.Activities.Domain.Models;
+﻿using Actio.Services.Activities.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace net_microservices.Actio.Services.Activities.Domain.Repositories
+namespace Actio.Services.Activities.Domain.Repositories
 {
     public interface ICategoryRepository
     {

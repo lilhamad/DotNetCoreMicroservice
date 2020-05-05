@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using net_microservices.Actio.Services.Activities.Domain.Repositories;
+using Actio.Services.Activities.Domain.Repositories;
 
 namespace Actio.Services.Activities
 {
@@ -46,7 +46,7 @@ namespace Actio.Services.Activities
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IActivityRepository, ActivityRepository>();
             services.AddTransient<IDatabaseSeeder, CustomMongoSeeder>();
-            //services.AddSingleton<IDatabaseInitializer, MongoInitializer>();
+            services.AddScoped<IActivityService, ActivityService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

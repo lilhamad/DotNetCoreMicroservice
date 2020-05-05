@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace net_microservices.Actio.Services.Activities.Domain.Models
+namespace Actio.Services.Activities.Domain.Models
 {
     public class Category
     {

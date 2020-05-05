@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
-using net_microservices.Actio.Services.Activities.Domain.Models;
-using net_microservices.Actio.Services.Activities.Domain.Repositories;
+using Actio.Services.Activities.Domain.Models;
+using Actio.Services.Activities.Domain.Repositories;
 
 namespace Actio.Services.Activities.Repositories
 {
