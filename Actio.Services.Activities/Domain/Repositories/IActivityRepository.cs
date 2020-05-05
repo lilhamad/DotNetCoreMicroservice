@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace net_microservices.Actio.Services.Activities.Domain.Repositories
 {
-    interface IActivityRepository
+    public interface IActivityRepository
     {
         Task<Activity> GetAsync(Guid id);
         Task AddAsync(Activity activity);
