@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Actio.Common.Commands;
 using Actio.Common.Mongo;
 using Actio.Common.RabbitMq;
-using Actio.Services.Activities.Handler;
 using Actio.Services.Activities.Repositories;
 using Actio.Services.Activities.Services;
 using Microsoft.AspNetCore.Builder;
@@ -15,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Actio.Services.Activities.Domain.Repositories;
+using Actio.Services.Activities.Handlers;
 
 namespace Actio.Services.Activities
 {
