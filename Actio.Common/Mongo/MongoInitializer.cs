@@ -18,8 +18,8 @@ namespace Actio.Common.Mongo
             IDatabaseSeeder seeder,
             IOptions<MongoOptions> options)
         {
-            _database = database;
             _seeder = seeder;
+            _database = database;
             _seed = options.Value.Seed;
         }
 

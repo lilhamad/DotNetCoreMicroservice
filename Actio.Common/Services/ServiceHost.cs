@@ -57,7 +57,7 @@ namespace Actio.Common.Services
             {
                 _webHost = webHost;
             }
-             
+
             public BusBuilder UseRabbitMq()
             {
                 _bus = (IBusClient)_webHost.Services.GetService(typeof(IBusClient));
@@ -109,3 +109,4 @@ namespace Actio.Common.Services
 
     }
 }
+

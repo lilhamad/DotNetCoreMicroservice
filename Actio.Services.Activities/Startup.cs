@@ -6,12 +6,15 @@ using Actio.Common.Commands;
 using Actio.Common.Mongo;
 using Actio.Common.RabbitMq;
 using Actio.Services.Activities.Handler;
+using Actio.Services.Activities.Repositories;
+using Actio.Services.Activities.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using net_microservices.Actio.Services.Activities.Domain.Repositories;
 
 namespace Actio.Services.Activities
 {
@@ -20,25 +23,30 @@ namespace Actio.Services.Activities
         //public IConfiguration Configuration { get; }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        //private readonly IDatabaseInitializer _databaseInitializer;
         public Startup(IConfiguration configuration)
         {
+            //_databaseInitializer = databaseInitializer;
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-             services.AddMvc();
+            services.AddMvc().AddControllersAsServices();
             //established a connection and configured our service bus
             services.AddRabbitMq(Configuration);
             //add mongo db
             services.AddMongoDB(Configuration);
-            // added Repository Implementation
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<IActivityRepository, ActivityRepository>();
+            
             //add handler
             // commad will be handled by service while, api will handle the events
             services.AddSingleton<ICommandHandler<CreateActivity>, CreateActivityHandler>();
+            // added Repository Implementation
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IActivityRepository, ActivityRepository>();
+            services.AddTransient<IDatabaseSeeder, CustomMongoSeeder>();
+            //services.AddSingleton<IDatabaseInitializer, MongoInitializer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +56,8 @@ namespace Actio.Services.Activities
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            //app.ApplicationServices.GetService<IDatabaseInitializer>().InitializeAsync();
+            //app.UseMvc();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
@@ -57,7 +66,11 @@ namespace Actio.Services.Activities
                 {
                     await context.Response.WriteAsync("Hello World!");
                 });
+                endpoints.MapControllerRoute(name: "home",
+                pattern: "home/{*article}",
+                defaults: new { controller = "Home", action = "New" });
             });
         }
     }
 }
+
