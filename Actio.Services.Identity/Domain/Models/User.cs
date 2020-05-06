@@ -2,7 +2,7 @@
 using Actio.Common.Exceptions;
 using Actio.Services.Identity.Domain.Services;
 
-namespace IdentityService_Microservice.Actio.Services.Identity.Domain.Models
+namespace Actio.Services.Identity.Domain.Models
 {
     public class User
     {
