@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -37,21 +38,22 @@ namespace Actio.Services.Identity
             // services.AddJwt(Configuration);
             services.AddMongoDB(Configuration);
             services.AddRabbitMq(Configuration);
-            // services.AddScoped<ICommandHandler<CreateUser>, CreateUserHandler>();
+            //services.AddScoped<ICommandHandler<CreateUser>, CreateUserHandler>();
             services.AddScoped<IUserRepository, UserRepository>();
-            // services.AddScoped<IUserService, UserService>();
-            services.AddSingleton<IEncrypter, Encrypter>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IEncrypter, Encrypter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.ApplicationServices.GetService<IDatabaseInitializer>().InitializeAsync();
-            app.UseMvc();
+            //app.ApplicationServices.GetService<IDatabaseInitializer>().InitializeAsync();
+            //app.UseMvc();
+            app.UseRouting();
         }
     }
 }

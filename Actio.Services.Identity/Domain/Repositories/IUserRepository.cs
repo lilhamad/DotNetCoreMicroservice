@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Actio.Services.Identity.Domain.Repositories
 {
-    interface IUserRepository
+    public interface IUserRepository
     {
         Task<User> GetAsync(Guid Id);
         Task<User> GetAsync(string email);

@@ -8,13 +8,13 @@ using Actio.Common.RabbitMq;
 using Actio.Services.Activities.Repositories;
 using Actio.Services.Activities.Services;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Actio.Services.Activities.Domain.Repositories;
 using Actio.Services.Activities.Handlers;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 namespace Actio.Services.Activities
 {
@@ -41,7 +41,7 @@ namespace Actio.Services.Activities
             
             //add handler
             // commad will be handled by service while, api will handle the events
-            services.AddSingleton<ICommandHandler<CreateActivity>, CreateActivityHandler>();
+            //services.AddScoped<ICommandHandler<CreateActivity>, CreateActivityHandler>();
             // added Repository Implementation
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IActivityRepository, ActivityRepository>();

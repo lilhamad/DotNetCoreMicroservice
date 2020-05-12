@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Actio.Common.Commands;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +14,17 @@ namespace Actio.Api.Controllers
         {
             _busClient = busClient;
         }
-        [HttpPost("register")]
+        [HttpPost("")]
         public async Task<IActionResult> Post([FromBody]CreateUser command)
         {
-            await _busClient.PublishAsync(command);
+            try
+            {
+                await _busClient.PublishAsync(command);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Error " +e);
+            }
             return Accepted();
         }
         
