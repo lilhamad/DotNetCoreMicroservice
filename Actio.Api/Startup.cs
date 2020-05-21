@@ -39,7 +39,7 @@ namespace Actio.Api
             services.AddRabbitMq(Configuration);
             //add handler
             services.AddMongoDB(Configuration);
-            services.AddScoped<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
+            //services.AddScoped<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
             // commad will be handled by service while, api will handle the events
             //services.AddSingleton<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
 
