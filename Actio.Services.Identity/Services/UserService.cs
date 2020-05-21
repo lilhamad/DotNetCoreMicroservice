@@ -12,15 +12,14 @@ namespace Actio.Services.Identity.Services
     {
         private readonly IUserRepository _repository;
         private readonly IEncrypter _encrypter;
-        // private readonly IJwtHandler _jwtHandler;
+        private readonly IJwtHandler _jwtHandler;
 
-        //IJwtHandler jwtHandler
         public UserService(IUserRepository repository,
-            IEncrypter encrypter)
+            IEncrypter encrypter, IJwtHandler jwtHandler)
         {
             _repository = repository;
             _encrypter = encrypter;
-            // _jwtHandler = jwtHandler;
+            _jwtHandler = jwtHandler;
         }
 
         public async Task RegisterAsync(string email, string password, string name)
@@ -37,8 +36,8 @@ namespace Actio.Services.Identity.Services
         }
 
 
-        // public async Task<JsonWebToken> LoginAsync(string email, string password)
-        public async Task LoginAsync(string email, string password)
+        public async Task<JsonWebToken> LoginAsync(string email, string password)
+        // public async Task LoginAsync(string email, string password)
         {
             var user = await _repository.GetAsync(email);
             if (user == null)
@@ -52,7 +51,7 @@ namespace Actio.Services.Identity.Services
                     $"Invalid credentials.");
             }
 
-            // return _jwtHandler.Create(user.Id);
+            return _jwtHandler.Create(user.Id);
         }
     }
 }
