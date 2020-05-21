@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Actio.Common.Events
 {
-    public class CreateUserRejected : IRejectEvent
+    public class CreateUserRejected : IRejectedEvent 
     {
         public string Email { get; }
 

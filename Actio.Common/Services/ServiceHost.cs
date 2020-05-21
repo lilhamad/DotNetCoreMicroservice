@@ -6,11 +6,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using RawRabbit;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using ICommand = Actio.Common.Commands.ICommand;
 
 namespace Actio.Common.Services
 {

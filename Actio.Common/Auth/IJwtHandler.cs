@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 
 namespace Actio.Common.Auth
 {
-    interface IJwtHandler
+    public interface IJwtHandler
     {
-        JsonWebToken Create(Guid userId);
+        JsonWebToken Create(Guid userId);     
     }
 }

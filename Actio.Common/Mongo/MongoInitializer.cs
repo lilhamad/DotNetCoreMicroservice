@@ -21,6 +21,8 @@ namespace Actio.Common.Mongo
             _seeder = seeder;
             _database = database;
             _seed = options.Value.Seed;
+            var _seed2 = options;
+            var _seed3 = options.Value;
         }
 
         public async Task InitializeAsync()

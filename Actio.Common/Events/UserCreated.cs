@@ -8,7 +8,7 @@ namespace Actio.Common.Events
     public class UserCreated
     {
         public string Email { get; }
-        public string Password { get; }
+        // public string Password { get; }
         public string Name { get; }
 
         protected UserCreated()

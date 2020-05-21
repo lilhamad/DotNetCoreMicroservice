@@ -26,12 +26,12 @@ namespace Actio.Services.Identity.Handlers
 
         public async Task HandleAsync(CreateUser command)
         {
-            //_logger.LogInformation($"Creating user: '{command.Email}' with name: '{command.Name}'.");
+            _logger.LogInformation($"Creating user: '{command.Email}' with name: '{command.Name}'.");
             try 
             {
                 await _userService.RegisterAsync(command.Email, command.Password, command.Name);
                 await _busClient.PublishAsync(new UserCreated(command.Email, command.Name));
-                // _logger.LogInformation($"User: '{command.Email}' was created with name: '{command.Name}'.");
+                _logger.LogInformation($"User: '{command.Email}' was created with name: '{command.Name}'.");
 
                 return;
             }

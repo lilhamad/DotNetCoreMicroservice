@@ -35,7 +35,7 @@ namespace Actio.Services.Identity
         {
             services.AddMvc();
             services.AddLogging();
-            // services.AddJwt(Configuration);
+            services.AddJwt(Configuration);
             services.AddMongoDB(Configuration);
             services.AddRabbitMq(Configuration);
             //services.AddScoped<ICommandHandler<CreateUser>, CreateUserHandler>();
@@ -54,6 +54,16 @@ namespace Actio.Services.Identity
             //app.ApplicationServices.GetService<IDatabaseInitializer>().InitializeAsync();
             //app.UseMvc();
             app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    await context.Response.WriteAsync("Hello World!");
+                //});
+                endpoints.MapControllerRoute(name: "home",
+                pattern: "home/{*article}",
+                defaults: new { controller = "Home", action = "New" });
+            });
         }
     }
 }
