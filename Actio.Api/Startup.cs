@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Actio.Api.Handlers;
 using Actio.Api.Repositories;
+using Actio.Common.Auth;
 using Actio.Common.Events;
+using Actio.Common.Mongo;
 using Actio.Common.RabbitMq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,9 +34,12 @@ namespace Actio.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddJwt(Configuration);
             //established a connection and configured our service bus
             services.AddRabbitMq(Configuration);
             //add handler
+            services.AddMongoDB(Configuration);
+            services.AddScoped<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
             // commad will be handled by service while, api will handle the events
             //services.AddSingleton<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
 
