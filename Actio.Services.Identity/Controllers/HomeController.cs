@@ -2,12 +2,11 @@ using Actio.Common.Mongo;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace Actio.Api.Controllers
+namespace Actio.Services.Identity.Controllers
 {
     //[Route("[Controller]")]
     public class HomeController : Controller
     {
-
         private readonly IDatabaseInitializer _databaseInitializer;
         public HomeController(IDatabaseInitializer databaseInitializer)
         {
@@ -19,6 +18,5 @@ namespace Actio.Api.Controllers
             await _databaseInitializer.InitializeAsync();
             return Accepted();
         }
-
     }
 }

@@ -10,7 +10,7 @@ namespace Actio.Common.Mongo
     public class MongoInitializer : IDatabaseInitializer
     {
         private bool _initialized;
-        private readonly bool _seed;
+        private readonly bool _seed = true;
         private readonly IMongoDatabase _database;
         private readonly IDatabaseSeeder _seeder;
 
