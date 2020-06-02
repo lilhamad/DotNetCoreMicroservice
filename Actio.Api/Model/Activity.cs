@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Actio.Api.Repositories
+namespace Actio.Api.Model
 {
-    public interface IActivityRepository
+    public class Activity
     {
-        Task AddAsync(Activity model);
     }
 }
